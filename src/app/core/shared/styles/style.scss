@@ -1,0 +1,299 @@
+// for table
+@mixin tbl {
+    .example-container {
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      box-shadow: 0px 0px 3px #0000001A;
+      border: 1px solid #DFDFDF;
+      opacity: 1;
+    }
+    .example-container .mat-paginator {
+      min-width: auto;
+    }
+    .example-container .mat-table {
+      min-width: auto;
+    }
+    .example-container .mat-header-row {
+      background: #F1F1F1 0% 0% no-repeat padding-box;
+    }
+    .example-container .mat-header-cell {
+      font-size: 0.9rem;
+      font-weight: bold !important;
+      color: #000000;
+      opacity: 1;
+    }
+    .example-container .mat-cell {
+      font-size: 0.9rem;
+      color: #212121;
+      opacity: 1;
+    }
+    .example-container .mat-row {
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-color: #DFDFDF;
+      opacity: 1;
+    }
+    .mobile-label {
+      display: none;
+    }
+    .redirect {
+      display: inline-block;
+      max-width: 95%;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+  
+      a {
+        text-decoration: none;
+        color: #000CA5;
+      }
+    }
+    @media(max-width: 600px) {
+      .mat-table {
+        mat-cell {
+          padding-left: 0px;
+        }
+      }
+      .mobile-redirect {
+        display: inline-block;
+        max-width: 99%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+      }
+      .mobile-label {
+        font-weight: bold !important;
+        color: #979797;
+        width: auto;
+        margin-right: 20px;
+        display: inline-block;
+        font-weight: bold;
+      }
+      .mat-header-row {
+        display: none;
+      }
+  
+      .mat-row {
+        flex-direction: column;
+        align-items: start;
+        padding: 8px 16px;
+      }
+    }
+}
+
+// login,register
+@mixin global {
+  .cover{
+   background-color: rgb(230, 227, 227);
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh; 
+   .logo-page {
+     padding-top: 1em;
+     padding-bottom: 1em;
+     place-content: center;
+     align-items: center;
+     flex-direction: row;
+     box-sizing: border-box;
+     display: flex;
+     font-size: 3rem;
+     color:#3f51b5; 
+   }
+ 
+   .main-container {
+     flex: 1 1 100%;
+     box-sizing: border-box;
+     place-content: stretch center;
+     align-items: stretch;
+     flex-direction: row;
+     display: flex;
+     max-height: 80%;
+     .card {
+       margin-bottom: 3em;
+       min-width: 35%;
+       .forms::ng-deep {
+         padding-left: 4em;
+         padding-right: 4em;
+         padding-top: 2rem;
+         padding-bottom: 2rem;
+         background: #FFFFFF 0% 0% no-repeat padding-box;
+         box-shadow: 0px 0px 25px #00000029;
+         border-radius: 24px;
+         height: auto;
+         .title {
+           font-weight: bold;
+           font-size: 1.9rem;
+           margin-bottom: 2rem;
+         }
+         mat-form-field {
+           width: 100%;
+         }
+         .forgot {
+           a {
+             color: #000000;
+             font-size: 0.8rem;
+             cursor: pointer;
+           }
+         }
+ 
+         .forgot:hover {
+           a {
+             color: #3f51b5 !important;
+             opacity: 1;
+           }
+         }
+         .page-action {
+           margin-top: 1.34375em;
+           .button {
+             padding-top:0.3rem !important;
+             padding-bottom: 0.3rem !important;
+             text-align: left !important;
+             font-size: 0.8rem !important;
+             font-weight: Bold !important;
+             width: 100% !important;
+             box-shadow: none !important;
+             img{
+               margin-left: 1rem;
+               height: 12px;
+             }
+           }
+           .mat-icon {
+             font-size: 20px !important;
+             padding-left: 2px;
+           }
+          }
+          .text-content {
+            margin-top: 1.34375em;
+            color: #000000;
+            font-size: 0.8rem;
+            .text-action {
+              font-size: 0.8rem;
+              opacity: 1 !important;
+              color: #000000;
+              font-weight: Bold !important;
+              padding-left: 1rem;
+            }
+            .text-action:hover {
+                color: #3f51b5 !important;
+                opacity: 1;
+            }
+          }      
+         }
+       }
+     }
+    }
+   @media (max-width: 599px) {
+     .cover{
+       .logo-page {
+         padding-top: 1em !important;
+         padding-bottom: 1em !important;
+         img {
+           width: 70% !important;
+         }
+       }
+       .main-container {
+         .card {
+           padding: 1em !important;
+           border-radius: 1em !important;
+           min-width: 80% !important;
+           .forms ::ng-deep {
+               padding-left: 0 !important;
+               padding-right: 0 !important;
+               min-width: 100% !important;
+               padding: 2em !important;  
+               .title {
+                 font-size: 1.2rem !important;
+               } 
+           }
+         }
+       }
+     }
+   }
+   @media (min-width: 2000px) {
+     .cover{
+     background-size: cover,15%,12%;
+     .logo-page {
+       padding-top: 6em !important;
+       padding-bottom: 6em !important;
+       img {
+         width: 25% !important;
+         display: block;
+       }
+     }
+     .main-container {
+       .card {
+         min-width: 30% !important;
+       }
+     }
+    }
+   }
+   @media (min-height: 900px) {
+     .cover{
+     .main-container {
+       .card {
+         margin-bottom: 12em !important;
+       }
+     }
+    }
+   }
+   @media (min-height: 1400px) {
+     .cover{
+     .main-container {
+       .card {
+         margin-bottom: 25em !important;
+         .forms::ng-deep {
+             padding-top: 4em !important;
+             padding-bottom: 4em !important;
+         }
+       }
+     }
+    }
+   }
+ }
+
+//dialog box
+@mixin dialog {
+  .dialog-content{
+     .title{
+      color:#3f51b5; 
+      font-size: 1rem;
+      font-weight: bold;
+     }
+  }
+} 
+
+// for forms
+@mixin forms {
+  @media (max-width: 425px) {
+    .form-content-border {
+      border-radius: 20px 0px 20px 0px !important;
+    }
+  }
+  .form-content-border {
+    border-radius: 40px 0px 40px 0px;
+  }
+  .form-content-margin{
+    margin-top: 2rem;
+  }
+  .form-content {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #DFDFDF;
+    padding: 30px;
+    .content{
+      .key{
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      .value{
+         opacity: 0.6;
+         margin-left: 1rem;
+      }
+    }
+  }
+  mat-form-field{
+    width:100%;
+  }
+  mat-label {
+    color: black !important;
+  }
+}
+
+ 

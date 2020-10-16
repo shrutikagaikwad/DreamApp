@@ -1,0 +1,39 @@
+<form [formGroup]="reset" (ngSubmit)="onSubmit()">
+<div class="dialog-content" fxLayout="column" fxLayoutGap="20px">
+    <div class="title">
+        {{'Reset Password' | titlecase}}
+    </div>
+    <div fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field>
+            <input matInput placeholder="Enter Email" formControlName="email" type="email">
+            <mat-error *ngIf="reset.get('email').hasError('required')">
+                Email is
+                <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="Enter Password" matInput formControlName="password" type="password">
+            <mat-error *ngIf="reset.get('password').hasError('required')">
+                Password is required
+            </mat-error>
+            <mat-error *ngIf="reset.get('password').hasError('pattern')">
+                (length 8-20,lowercase,uppercase,numbers,special)
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="Enter Confirm Password" matInput formControlName="confirm_password" type="password">
+            <mat-error *ngIf="reset.get('confirm_password').hasError('required')">
+                Confirm Password is required
+            </mat-error>
+            <mat-error *ngIf="reset.get('confirm_password').hasError('mustMatch')">
+                Passwords are not matching
+            </mat-error>
+        </mat-form-field>
+    </div>  
+    <div fxLayoutGap="1rem">
+        <button mat-stroked-button color="accent" mat-dialog-close>Cancel</button>
+        <button mat-raised-button color="accent" type="submit" [disabled]="!reset.valid">Reset</button>
+    </div> 
+</div>
+</form>
+

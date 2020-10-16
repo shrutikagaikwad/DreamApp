@@ -1,0 +1,109 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .page-header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 97;
+  }
+  .page-main {
+    flex-grow: 1;
+      .mat-sidenav-container{
+        background-color: rgb(230, 227, 227);
+        min-height: 100vh !important;
+      }
+      mat-sidenav-content{
+        margin-top: 120px;
+        margin-bottom: 32px;
+        .container {
+            padding-right:200px;
+            padding-left:200px;
+            margin: 0 auto;
+         }
+         .container-ex-sm {
+          padding-right:30px;
+          padding-left:30px;
+          margin: 0 auto;
+         }
+         .container-sm {
+          padding-right:100px;
+          padding-left:100px;
+          margin: 0 auto;
+         }
+         .container-xl{
+          padding-right:450px;
+          padding-left:450px;
+          margin: 0 auto;
+         }
+       }
+      mat-sidenav {
+        top: 84px !important;
+        bottom: 66px !important;
+        margin-right: 20px;
+        width: 250px;
+        padding: 10px 10px;
+        a{
+          margin-top:0.5rem;
+          .icon {
+            padding: 0 20px 0 10px;
+          }
+          font-weight: bold;
+          font-size: 0.8rem;
+          text-transform: initial;
+        }
+        .active{
+          color:#ff4081 !important;
+          background-color: #e1e1ef;
+          .icon{
+            color: #ff4081 !important;
+          }
+        }
+        .boxTitle{
+          padding: 0 16px;
+          display: block;
+          text-align: center;
+          .name {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin: 0;
+            color: #2F3640;
+            opacity: 1;
+          }
+          .email {
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: #8310B1;
+            opacity: 1;
+            margin: 0;
+          }
+        }
+        .menu-border {
+           opacity: 1;
+          .wallet_icon{
+            padding-right: 15px;
+            padding-left: 5px;
+            width: 15px;
+            height: 15px;
+          }
+        }
+        .align-center {
+          display: block;
+          text-align: center;
+          line-height: 56px;
+        }
+      }
+  }
+  
+  
+  .page-footer{
+    background: #262626 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: #ffffff;
+    height: 40px !important;
+  }
+  
+  

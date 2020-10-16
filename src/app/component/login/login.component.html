@@ -1,0 +1,52 @@
+<div class="cover">
+    <div class="logo-page">
+      DreamApp
+    </div>
+    <div class="main-container">
+      <div class="card">
+        <form [formGroup]="login" class="forms" fxLayout="column">
+          <div class="title">
+            Login
+          </div>
+          <mat-form-field appearance="outline" floatLabel="never">
+            <input matInput placeholder="Email" formControlName="email" type="email">
+            <mat-error *ngIf="login.get('email').hasError('required')">
+                Email is
+                <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="login.get('email').hasError('pattern')">
+              Email is
+              <strong>invalid</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="never">
+            <mat-icon matSuffix (click)="showPassword()"
+              [ngStyle]="{'cursor':'pointer'}">
+              {{show_eye ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+            <input matInput placeholder="Password" formControlName="password" [type]="show_button ? 'text' : 'password'" autocomplete="new-password">
+            <mat-error *ngIf="login.get('password').hasError('required')">
+                Password is
+                <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <div fxLayoutAlign="end" class="forgot">
+          <a (click)="resetPasswordOperation()">Forgot password?</a>
+        </div>
+          <div fxLayoutAlign="center" class="page-action">
+            <button mat-raised-button class="button"  color="primary" (click)="onSubmit()"
+              [disabled]="!login.valid || loading" [ngStyle]="{'justify-content': 'center', 'display': 'flex'}">
+              LOGIN
+            </button>
+          </div>
+          <div class="text-content" fxLayoutAlign="end">Don't have an account?
+            <span class="text-action">
+              <a [ngStyle]="{'cursor':'pointer'}" (click)="router.navigate(['register'])">Sign Up</a>
+            </span>
+          </div>
+          <div class="custom-error" *ngIf="errMessage">{{errMessage}}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

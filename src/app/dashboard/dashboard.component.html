@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <header class="page-header">
+        <app-toolbar (toggle)="sidenav.toggle()"></app-toolbar>
+    </header>
+    <main class="page-main">
+        <mat-sidenav-container role="navigation" class="mat-sidenav-container">
+            <mat-sidenav #sidenav mode="over" opened="false" [fixedTopGap]="menuGap" [fixedInViewport]="true"
+                position="end">
+                <mat-nav-list>
+                    <div *ngFor="let menu of menus">
+                        <a mat-list-item [routerLink]="menu.link" routerLinkActive="active">
+                            <mat-icon class="icon" mat-list-icon>{{menu.icon}}</mat-icon>
+                            {{ menu.title }}
+                        </a>
+                    </div>
+                    <div>
+                        <a mat-list-item (click)="sidenav.close();onLogout()">
+                            <mat-icon class="icon" mat-list-icon>power_settings_new</mat-icon>
+                            {{ 'Log out' }}
+                        </a>
+                    </div>
+                </mat-nav-list>
+            </mat-sidenav>
+
+            <mat-sidenav-content fxFlexFill>
+                <article>
+                    <div [ngClass]="extraSmallScreen?'container-ex-sm':smallScreen ? 'container-sm':extraLargeScreen?'container-xl':'container'"
+                    class="container">
+                        <router-outlet></router-outlet>
+                    </div>
+                </article>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </main>
+    <footer class="page-footer" fxLayoutAlign="center center">
+        <a class="mat-caption">Copyright &copy; {{year}} Praia. All rights reserved.</a>
+    </footer>
+</div>

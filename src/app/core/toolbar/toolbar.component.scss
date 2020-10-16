@@ -1,0 +1,48 @@
+.container {
+  padding-right:200px;
+  padding-left:200px;
+}
+.container-ex-sm {
+padding-right:30px;
+padding-left:30px;
+}
+.container-sm {
+padding-right:100px;
+padding-left:100px;
+}
+.container-xl{
+padding-right:450px;
+padding-left:450px;
+}
+
+
+.title {
+  padding: 0 16px;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.r1 {
+  padding-left: 15px;
+}
+
+.r2 {
+  padding-left: 80px;
+  font-size: 15px;
+}
+
+p {
+  position: relative;
+  top: -7px;
+  left: 7px;
+  .sub {
+    color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    font-size: 11px;
+    top: 20px;
+    left: 0;
+  }
+}

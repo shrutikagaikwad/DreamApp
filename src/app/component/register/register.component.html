@@ -1,0 +1,100 @@
+<div class="cover">
+    <div class="logo-page">
+      DreamApp
+    </div>
+    <div class="main-container">
+      <div class="card">
+        <form [formGroup]="register" class="forms" fxLayout="column">
+          <div class="title">
+            Register
+          </div>
+          <mat-form-field appearance="outline" floatLabel="never">
+            <input matInput placeholder="First name" formControlName="firstname" type="text">
+            <mat-error *ngIf="register.get('firstname').hasError('required')">
+              First name is required
+          </mat-error>
+          <mat-error *ngIf="register.get('firstname').hasError('pattern')">
+            First name is not valid
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" floatLabel="never">
+            <input matInput placeholder="Last name" formControlName="lastname" type="text">
+            <mat-error *ngIf="register.get('lastname').hasError('required')">
+              Last name is required
+          </mat-error>
+          <mat-error *ngIf="register.get('lastname').hasError('pattern')">
+            Last name is not valid
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="never">
+          <input matInput [matDatepicker]="picker"  [max]="maxFromDate" placeholder="DOB" formControlName="dob" (dateChange)="onChangesDate($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="register.get('dob').hasError('required')">
+            DOB is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <textarea matInput type="text" placeholder="Address" formControlName="address"></textarea>
+          <mat-error *ngIf="register.get('address').hasError('required')">
+            Address is required
+          </mat-error>
+          <mat-error *ngIf="register.get('address').hasError('maxlength')">
+            Max length is 20
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="never">
+          <input matInput placeholder="Company" formControlName="company" type="text">
+          <mat-error *ngIf="register.get('company').hasError('required')">
+            Company is required
+          </mat-error>
+          <mat-error *ngIf="register.get('company').hasError('pattern')">
+            Company is not valid
+          </mat-error>
+        </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="never">
+            <input matInput placeholder="Email" formControlName="email" type="email">
+            <mat-error *ngIf="register.get('email').hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="register.get('email').hasError('pattern')">
+                Email is not valid
+            </mat-error>
+        </mat-form-field>
+
+          <mat-form-field appearance="outline"floatLabel="never">
+              <mat-icon matSuffix (click)="showPassword()"
+                [ngStyle]="{'cursor':'pointer'}">
+                {{show_eye ? 'visibility' : 'visibility_off'}}
+              </mat-icon>
+              <input matInput placeholder="Password" formControlName="password" [type]="show_button ? 'text' : 'password'">
+              <mat-error *ngIf="register.get('password').hasError('required')">
+                  Password is required
+              </mat-error>
+              <mat-error *ngIf="register.get('password').hasError('pattern')">
+                  (length 8-20,lowercase,uppercase,numbers,special)
+              </mat-error>
+          </mat-form-field>
+
+
+
+          <div fxLayoutAlign="center" class="page-action">
+            <button mat-raised-button class="button"  color="primary" (click)="onSubmit()"
+              [disabled]="!register.valid || loading" [ngStyle]="{'justify-content': 'center', 'display': 'flex'}">
+              REGISTER
+            </button>
+          </div>
+          <div class="text-content" fxLayoutAlign="end">Don't have an account?
+            <span class="text-action">
+              <a [ngStyle]="{'cursor':'pointer'}" (click)="router.navigate(['login'])">Sign In</a>
+            </span>
+          </div>
+          <div class="custom-error" *ngIf="errMessage">{{errMessage}}</div>
+        </form>
+      </div>
+    </div>
+  </div>
